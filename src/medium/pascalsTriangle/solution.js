@@ -3,17 +3,19 @@ function pascalTrianglee(rows) {
   let rowArray = [];
   for (let rowNumber = 0; rowNumber < rows; rowNumber++) {
     let innerArray = [];
-    for (let columnIndex = 0; columnIndex <= rowNumber; columnIndex++) {
+    for (let columnIndex = 0; columnIndex < rowNumber; columnIndex++) {
       //first col and last col are always 1
-      if (columnIndex == 0 || columnIndex == rowNumber) {
+      if (columnIndex == 0) {
         pascalNum = 1;
       } else {
-        pascalNum = (pascalNum * (rowNumber - columnIndex + 1)) / columnIndex;
-        //console.log('pascalNum'+pascalNum+' columnIndex'+columnIndex+' rowNumber'+rowNumber);
+        //nCr = r!*(n - r)!/n!
+        pascalNum = (pascalNum * (rowNumber - columnIndex)) / columnIndex;
+        console.log('columnIndex: ' + columnIndex+' rowNumber: ' + rowNumber+' pascalNum: ' + pascalNum);
       }
       innerArray.push(pascalNum);
     }
     rowArray.push(innerArray + "\n");
+    console.log('----------------------------------------');
   }
   return rowArray;
 }
